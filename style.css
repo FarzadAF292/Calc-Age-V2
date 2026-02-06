@@ -1,0 +1,390 @@
+/* =========================
+   Base + Theme Variables
+========================= */
+:root {
+  /* change these later */
+  --bg: #2f363f;
+  --text: #d7dbe2;
+  --muted: #97a0ad;
+  --soft: rgba(255, 255, 255, 0.06);
+  --soft-2: rgba(255, 255, 255, 0.09);
+  --soft-3: rgba(255, 255, 255, 0.14);
+
+  --card: #444f60;
+  --card-2: #3e4959;
+
+  --primary: #1c4f9a;
+  --primary-2: #123b77;
+
+  --line: rgba(255, 255, 255, 0.16);
+
+  --radius: 14px;
+  --radius-lg: 18px;
+  --shadow: 0 16px 50px rgba(0, 0, 0, 0.25);
+
+  --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  letter-spacing: 0.2px;
+}
+
+/* =========================
+   Top Bar
+========================= */
+.topbar {
+  height: 34px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 34px;
+}
+
+.topbarAdjast {
+  width: 700px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar__center {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  opacity: 0.85;
+  font-size: 12px;
+  font-family:
+    Martian Mono,
+    monospace;
+  font-weight: 300;
+}
+
+.meta {
+  color: var(--muted);
+}
+
+.dot {
+  color: var(--muted);
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.toggle-pill {
+  display: flex;
+  gap: 10px;
+  padding: 5px 5px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.toggle-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.06);
+  display: grid;
+  place-items: center;
+  cursor: default;
+}
+
+/* =========================
+   Layout
+========================= */
+.wrap {
+  min-height: calc(100vh - 64px - 60px);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 18px 24px;
+}
+
+.hero {
+  width: min(860px, 92vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(28px, 4.1vw, 44px);
+  letter-spacing: 1.2px;
+  font-weight: 800;
+  opacity: 0.92;
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+  opacity: 0.95;
+  font-family:
+    Martian Mono,
+    monospace;
+  font-weight: 300;
+}
+
+/* =========================
+   Controls
+========================= */
+.controls {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.input-pill {
+  position: relative;
+  width: 200px;
+  height: 40px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+
+  /* space for icon */
+  padding-right: 60px;
+}
+
+/* date input */
+.date-input {
+  width: 100%;
+  height: 100%;
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  padding: 0 24px;
+
+  font-size: 12px;
+  font-family:
+    Martian Mono,
+    monospace;
+  font-weight: 300;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* hide browser calendar icon */
+.date-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 10px;
+
+  width: 32px;
+  height: 32px;
+
+  opacity: 0; /* invisible */
+  cursor: pointer;
+
+  z-index: 3; /* above input, below your icon */
+}
+
+/* your custom calendar icon */
+.date-icon {
+  position: absolute;
+  right: 18px; /* aligns icon inside pill */
+  width: 14px;
+  height: 16px;
+
+  opacity: 0.55;
+  pointer-events: none; /* click goes to input */
+}
+
+/* when date selected */
+.date-input:valid {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-primary {
+  height: 40px;
+  width: 120px;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 10px;
+  background: #102c56;
+  color: #2158ab;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+  font-family:
+    Martian Mono,
+    monospace;
+  font-weight: 300;
+}
+
+/* =========================
+   Card + Stats
+========================= */
+.result-card {
+  width: 700px;
+  background: #414b5a;
+  border-radius: 10px;
+  padding: 30px 50px;
+}
+
+/* ======= TOP: 3 stats ======= */
+.stats3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.statBox {
+  position: relative;
+  padding: 10px 0;
+}
+
+/* vertical separators between columns */
+.statBox:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.num {
+  font-size: 40px;
+  font-weight: 200;
+  letter-spacing: -10%;
+  color: #c4cad4;
+  line-height: 100%;
+  font-family:
+    Martian Mono,
+    monospace;
+}
+
+.label {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.55);
+  font-family:
+    Martian Mono,
+    monospace;
+}
+
+/* ======= BOTTOM: segmented ranges ======= */
+.ranges {
+  display: flex;
+  align-items: flex-end;
+  gap: 5.24px;
+  min-width: 100%;
+}
+
+/* each segment is a small column: label + line */
+.seg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 98px;
+}
+
+/* control segment widths like the screenshot */
+.seg.small {
+  min-width: 12px;
+}
+.seg.wide {
+  min-width: 137px;
+}
+.seg.xwide {
+  min-width: 236px;
+}
+
+.segLabel {
+  font-size: 7px;
+  font-weight: 300;
+  color: rgba(190, 205, 230, 0.45);
+  letter-spacing: 1px;
+  font-family:
+    Martian Mono,
+    monospace;
+}
+
+/* the gray line */
+.segLine {
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(170, 190, 220, 0.35);
+}
+
+/* =========================
+   Reset button
+========================= */
+.btn-ghost {
+  margin-top: 14px;
+  height: 36px;
+  padding: 10px 15px 10px 10px;
+  border-radius: 22px;
+  background: transparent;
+  border: 1px solid #8995a9;
+  color: #8995a9;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family:
+    Martian Mono,
+    monospace;
+}
+
+/* =========================
+   Footer
+========================= */
+.footer {
+  height: 12px;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 37px;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #c4cad4;
+  font-family:
+    Martian Mono,
+    monospace;
+}
+
+/* =========================
+   Responsive
+========================= */

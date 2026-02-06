@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator | V2</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="./assests/logo.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top bar -->
+    <header class="topbar">
+        <div class="topbarAdjast">
+            <div class="topbar__left">
+                <div class="icon-btn" aria-label="Profile">
+                    <img src="./assests/logo.svg" alt="Logo">
+                </div>
+            </div>
+
+            <div class="topbar__center">
+                <span class="meta">CA, USA</span>
+                <span class="dot">|</span>
+                <span class="meta">12 : 24 : 14 PM</span>
+            </div>
+
+            <div class="topbar__right">
+                <div class="toggle-pill" aria-label="Theme toggle (UI only)">
+                    <button class="toggle-icon" aria-label="Moon">
+                        <!-- moon -->
+                        <img src="./assests/night.svg" alt="Night Mode">
+                    </button>
+                    <button class="toggle-icon" aria-label="Sun">
+                        <!-- sun -->
+                        <img src="./assests/day.svg" alt="Day Mode">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="wrap">
+        <section class="hero">
+            <h1 class="title">AGE CALCULATOR</h1>
+            <p class="subtitle">Enter your birth date<br />and get your age.</p>
+
+            <!-- Input row (UI only) -->
+            <div class="controls">
+                <div class="input-pill">
+                    <input type="date" class="date-input" required aria-label="Birth date" />
+                    <img class="date-icon" src="./assests/calender.svg" alt="Calendar">
+                </div>
+
+
+                <button class="btn-primary" type="button">Calculate</button>
+            </div>
+
+            <!-- Result card -->
+            <section class="result-card">
+                <!-- Top numbers -->
+                <div class="stats3">
+                    <div class="statBox">
+                        <div class="num">32</div>
+                        <div class="label">Years</div>
+                    </div>
+
+                    <div class="statBox">
+                        <div class="num">06</div>
+                        <div class="label">Months</div>
+                    </div>
+
+                    <div class="statBox">
+                        <div class="num">14</div>
+                        <div class="label">Days</div>
+                    </div>
+                </div>
+
+                <!-- Range bar -->
+                <div class="ranges">
+                    <div class="seg small">
+                        <div class="segLabel">0</div>
+                        <div class="segLine"></div>
+                    </div>
+
+                    <div class="seg">
+                        <div class="segLabel">3–12</div>
+                        <div class="segLine"></div>
+                    </div>
+
+                    <div class="seg">
+                        <div class="segLabel">13–19</div>
+                        <div class="segLine"></div>
+                    </div>
+
+                    <div class="seg wide">
+                        <div class="segLabel">36–59</div>
+                        <div class="segLine"></div>
+                    </div>
+
+                    <div class="seg xwide">
+                        <div class="segLabel">60+</div>
+                        <div class="segLine"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reset -->
+            <button class="btn-ghost" type="button">
+                <span class="reset-ic">
+                    <!-- reset -->
+                    <img src="./assests/reset.svg" alt="Reset">
+                </span>
+                Reset
+            </button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>2026 © FARZAD AFZALLI | V2</span>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
