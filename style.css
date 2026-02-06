@@ -2,27 +2,25 @@
    Base + Theme Variables
 ========================= */
 :root {
-  /* change these later */
-  --bg: #2f363f;
-  --text: #d7dbe2;
-  --muted: #97a0ad;
-  --soft: rgba(255, 255, 255, 0.06);
-  --soft-2: rgba(255, 255, 255, 0.09);
-  --soft-3: rgba(255, 255, 255, 0.14);
+  --yellow300: #eeff00;
+  --yellow600: #becc00;
 
-  --card: #444f60;
-  --card-2: #3e4959;
+  --blue100: #eaf1fb;
+  --blue300: #a9c5ef;
+  --blue700: #2158ab;
+  --blue800: #102c56;
 
-  --primary: #1c4f9a;
-  --primary-2: #123b77;
+  --gray100: #f0f2f4;
+  --gray200: #e1e4ea;
+  --gray300: #c4cad4;
+  --gray400: #a6afbf;
+  --gray500: #8995a9;
+  --gray600: #6b7a94;
+  --gray700: #566276;
+  --gray800: #404959;
+  --gray900: #2b313b;
 
-  --line: rgba(255, 255, 255, 0.16);
-
-  --radius: 14px;
-  --radius-lg: 18px;
-  --shadow: 0 16px 50px rgba(0, 0, 0, 0.25);
-
-  --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --white: #ffffff;
 }
 
 * {
@@ -34,9 +32,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: var(--font);
-  background: var(--bg);
-  color: var(--text);
+  background: var(--gray900);
   letter-spacing: 0.2px;
 }
 
@@ -72,12 +68,9 @@ body {
   font-weight: 300;
 }
 
-.meta {
-  color: var(--muted);
-}
-
+.meta,
 .dot {
-  color: var(--muted);
+  color: var(--gray200);
 }
 
 .icon-btn {
@@ -91,18 +84,18 @@ body {
   gap: 10px;
   padding: 5px 5px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--gray800);
 }
 
 .toggle-icon {
   width: 28px;
   height: 28px;
-  border-radius: 999px;
+  border-radius: 20px;
   border: 0;
-  background: rgba(255, 255, 255, 0.06);
   display: grid;
   place-items: center;
-  cursor: default;
+  cursor: pointer;
+  background: var(--gray500);
 }
 
 /* =========================
@@ -118,45 +111,41 @@ body {
 }
 
 .hero {
-  width: min(860px, 92vw);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 16px;
 }
 
 .title {
   margin: 0;
-  font-size: clamp(28px, 4.1vw, 44px);
-  letter-spacing: 1.2px;
-  font-weight: 800;
-  opacity: 0.92;
-  font-family: "Archivo Black", sans-serif;
+  font-size: 36px;
+  letter-spacing: 0%;
   font-weight: 400;
+  font-family: "Archivo Black", sans-serif;
+  color: var(--gray200);
 }
 
 .subtitle {
   margin: 0;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.35;
-  opacity: 0.95;
+  color: var(--gray300);
+  font-size: 14px;
+  line-height: 100%;
   font-family:
     Martian Mono,
     monospace;
   font-weight: 300;
+  margin-top: 30px;
 }
 
 /* =========================
    Controls
 ========================= */
 .controls {
-  margin-top: 6px;
+  margin-top: 28px;
   display: flex;
   align-items: center;
   gap: 10px;
-  position: relative;
 }
 
 .input-pill {
@@ -164,7 +153,7 @@ body {
   width: 200px;
   height: 40px;
 
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--gray800);
   border-radius: 10px;
 
   display: flex;
@@ -191,7 +180,7 @@ body {
     monospace;
   font-weight: 300;
 
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--gray500);
 
   appearance: none;
   -webkit-appearance: none;
@@ -230,14 +219,13 @@ body {
 .btn-primary {
   height: 40px;
   width: 120px;
-  padding: 13px 22px;
+  padding: 10px 20px;
   border: 0;
   border-radius: 10px;
-  background: #102c56;
-  color: #2158ab;
+  background: var(--blue800);
+  color: var(--blue700);
   font-size: 12px;
   cursor: pointer;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
   font-family:
     Martian Mono,
     monospace;
@@ -249,9 +237,10 @@ body {
 ========================= */
 .result-card {
   width: 700px;
-  background: #414b5a;
+  background: var(--gray800);
   border-radius: 10px;
   padding: 30px 50px;
+  margin-top: 28px;
 }
 
 /* ======= TOP: 3 stats ======= */
@@ -282,7 +271,7 @@ body {
   font-size: 40px;
   font-weight: 200;
   letter-spacing: -10%;
-  color: #c4cad4;
+  color: var(--gray300);
   line-height: 100%;
   font-family:
     Martian Mono,
@@ -293,7 +282,7 @@ body {
   margin-top: 10px;
   font-size: 12px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--gray300);
   font-family:
     Martian Mono,
     monospace;
@@ -330,32 +319,31 @@ body {
 .segLabel {
   font-size: 7px;
   font-weight: 300;
-  color: rgba(190, 205, 230, 0.45);
+  color: var(--gray600);
   letter-spacing: 1px;
   font-family:
     Martian Mono,
     monospace;
 }
 
-/* the gray line */
 .segLine {
   width: 100%;
   height: 4px;
-  border-radius: 2px;
-  background: rgba(170, 190, 220, 0.35);
+  border-radius: 1px;
+  background: var(--gray600);
 }
 
 /* =========================
    Reset button
 ========================= */
 .btn-ghost {
-  margin-top: 14px;
+  margin-top: 47px;
   height: 36px;
   padding: 10px 15px 10px 10px;
   border-radius: 22px;
   background: transparent;
-  border: 1px solid #8995a9;
-  color: #8995a9;
+  border: 1px solid var(--gray500);
+  color: var(--gray500);
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -379,7 +367,7 @@ body {
   align-items: center;
   font-size: 10px;
   letter-spacing: 1px;
-  color: #c4cad4;
+  color: var(--gray300);
   font-family:
     Martian Mono,
     monospace;
