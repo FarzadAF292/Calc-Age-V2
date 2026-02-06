@@ -26,30 +26,38 @@
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   background: var(--gray900);
-  letter-spacing: 0.2px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: var(--gray200);
+}
+
+img {
+  display: block;
 }
 
 /* =========================
    Top Bar
 ========================= */
 .topbar {
-  height: 34px;
+  height: 68px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 34px;
 }
 
-.topbarAdjast {
-  width: 700px;
+.topbarAdjust {
+  width: min(700px, 92vw);
   height: 34px;
   display: flex;
   align-items: center;
@@ -73,9 +81,10 @@ body {
   color: var(--gray200);
 }
 
-.icon-btn {
+.icon-btn img {
   width: 34px;
   height: 34px;
+  display: block;
   cursor: pointer;
 }
 
@@ -102,12 +111,11 @@ body {
    Layout
 ========================= */
 .wrap {
-  min-height: calc(100vh - 64px - 60px);
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 18px 24px;
+  padding: 70px 18px 24px;
 }
 
 .hero {
@@ -120,7 +128,7 @@ body {
 .title {
   margin: 0;
   font-size: 36px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   font-weight: 400;
   font-family: "Archivo Black", sans-serif;
   color: var(--gray200);
@@ -130,7 +138,7 @@ body {
   margin: 0;
   color: var(--gray300);
   font-size: 14px;
-  line-height: 100%;
+  line-height: 1.3;
   font-family:
     Martian Mono,
     monospace;
@@ -160,7 +168,7 @@ body {
   align-items: center;
 
   /* space for icon */
-  padding-right: 60px;
+  padding-right: 0;
 }
 
 /* date input */
@@ -172,7 +180,7 @@ body {
   border: none;
   outline: none;
 
-  padding: 0 24px;
+  padding: 0 48px 0 16px;
 
   font-size: 12px;
   font-family:
@@ -190,53 +198,66 @@ body {
 .date-input::-webkit-calendar-picker-indicator {
   position: absolute;
   right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 
   width: 32px;
   height: 32px;
 
-  opacity: 0; /* invisible */
+  opacity: 0;
   cursor: pointer;
-
-  z-index: 3; /* above input, below your icon */
+  z-index: 3;
 }
 
 /* your custom calendar icon */
 .date-icon {
   position: absolute;
-  right: 18px; /* aligns icon inside pill */
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+
   width: 14px;
   height: 16px;
 
   opacity: 0.55;
-  pointer-events: none; /* click goes to input */
+  pointer-events: none;
+  z-index: 4;
 }
 
 /* when date selected */
 .date-input:valid {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--gray100);
 }
 
 .btn-primary {
   height: 40px;
   width: 120px;
   padding: 10px 20px;
+
   border: 0;
   border-radius: 10px;
+
   background: var(--blue800);
   color: var(--blue700);
+
   font-size: 12px;
   cursor: pointer;
+
   font-family:
     Martian Mono,
     monospace;
   font-weight: 300;
 }
 
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
 /* =========================
    Card + Stats
 ========================= */
 .result-card {
-  width: 700px;
+  width: min(700px, 92vw);
   background: var(--gray800);
   border-radius: 10px;
   padding: 30px 50px;
@@ -270,9 +291,9 @@ body {
 .num {
   font-size: 40px;
   font-weight: 200;
-  letter-spacing: -10%;
+  letter-spacing: 1px;
   color: var(--gray300);
-  line-height: 100%;
+  line-height: 1;
   font-family:
     Martian Mono,
     monospace;
@@ -293,7 +314,10 @@ body {
   display: flex;
   align-items: flex-end;
   gap: 5.24px;
-  min-width: 100%;
+
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
 }
 
 /* each segment is a small column: label + line */
@@ -303,6 +327,15 @@ body {
   align-items: center;
   gap: 5px;
   min-width: 98px;
+  flex: 0 0 auto;
+}
+
+.ranges::-webkit-scrollbar {
+  height: 6px;
+}
+.ranges::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
 }
 
 /* control segment widths like the screenshot */
@@ -313,7 +346,7 @@ body {
   min-width: 137px;
 }
 .seg.xwide {
-  min-width: 236px;
+  min-width: 230px;
 }
 
 .segLabel {
@@ -358,13 +391,12 @@ body {
    Footer
 ========================= */
 .footer {
-  height: 12px;
+  height: 60px;
   width: 100%;
   display: flex;
-  position: fixed;
-  bottom: 37px;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
   font-size: 10px;
   letter-spacing: 1px;
   color: var(--gray300);
@@ -376,3 +408,90 @@ body {
 /* =========================
    Responsive
 ========================= */
+
+/* =========================
+   Responsive
+========================= */
+
+/* tablets */
+@media (max-width: 768px) {
+  .topbarAdjast {
+    width: min(700px, 92vw);
+  }
+
+  .result-card {
+    padding: 26px 22px;
+  }
+}
+
+/* phones */
+@media (max-width: 600px) {
+  .wrap {
+    padding: 48px 14px 18px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    margin-top: 14px;
+  }
+
+  /* controls stack */
+  .controls {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .input-pill {
+    width: min(420px, 92vw);
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .date-input {
+    font-size: 12px;
+    padding: 0 52px 0 16px;
+  }
+
+  .btn-primary {
+    width: min(420px, 92vw);
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  /* card full width */
+  .result-card {
+    width: min(700px, 92vw);
+    padding: 22px 16px;
+    border-radius: 12px;
+  }
+
+  /* stats smaller */
+  .num {
+    font-size: 34px;
+  }
+  .label {
+    font-size: 11px;
+  }
+
+  /* ranges scroll (you already enabled overflow) */
+  .ranges {
+    padding-bottom: 10px;
+  }
+}
+
+/* very small phones */
+@media (max-width: 380px) {
+  .topbar__center {
+    gap: 10px;
+    font-size: 11px;
+  }
+
+  .num {
+    font-size: 30px;
+  }
+}
