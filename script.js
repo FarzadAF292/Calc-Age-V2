@@ -13,6 +13,29 @@ const segments = document.querySelectorAll(".seg");
 const hdrTime = document.getElementById("hdrTime");
 const hdrLocation = document.getElementById("hdrLocation");
 
+const btnDark = document.getElementById("btnDark");
+const btnLight = document.getElementById("btnLight");
+
+// load saved theme
+const savedTheme = localStorage.getItem("theme") || "dark";
+setTheme(savedTheme);
+
+btnDark.addEventListener("click", () => setTheme("dark"));
+btnLight.addEventListener("click", () => setTheme("light"));
+
+function setTheme(theme) {
+  if (theme === "light") {
+    document.body.classList.add("light");
+    btnLight.classList.add("active");
+    btnDark.classList.remove("active");
+  } else {
+    document.body.classList.remove("light");
+    btnDark.classList.add("active");
+    btnLight.classList.remove("active");
+  }
+  localStorage.setItem("theme", theme);
+}
+
 const tz = Intl.DateTimeFormat().resolvedOptions().timeZone; // e.g. "Asia/Seoul"
 
 function updateClock() {
