@@ -48,7 +48,7 @@ function updateClock() {
     timeZone: tz,
   }).format(now);
 
-  hdrTime.textContent = `${timeStr} (${tz})`;
+  hdrTime.textContent = timeStr;
 }
 
 updateClock();
