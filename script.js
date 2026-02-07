@@ -10,6 +10,53 @@ const outDays = document.getElementById("outDays");
 
 const segments = document.querySelectorAll(".seg");
 
+const hdrTime = document.getElementById("hdrTime");
+const hdrLocation = document.getElementById("hdrLocation");
+
+const tz = Intl.DateTimeFormat().resolvedOptions().timeZone; // e.g. "Asia/Seoul"
+
+function updateClock() {
+  const now = new Date();
+  const timeStr = new Intl.DateTimeFormat(undefined, {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+    timeZone: tz,
+  }).format(now);
+
+  hdrTime.textContent = `${timeStr} (${tz})`;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+async function loadLocation() {
+  try {
+    // show something immediately
+    hdrLocation.textContent = "Loading…";
+
+    const res = await fetch("https://ipapi.co/json/");
+    if (!res.ok) throw new Error("HTTP " + res.status);
+
+    const data = await res.json();
+
+    const city = data.city || "";
+    const country = data.country_name || data.country || "";
+
+    hdrLocation.textContent =
+      city && country ? `${city}, ${country}` : country || "Unknown";
+  } catch (err) {
+    console.log("Location error:", err);
+
+    // fallback: at least show timezone region like "Asia/Seoul"
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    hdrLocation.textContent = tz ? tz.replace("_", " ") : "Unknown";
+  }
+}
+
+loadLocation();
+
 // Calculate button functionality
 btnCalc.addEventListener("click", () => {
   const [y, m, d] = birthDateInput.value.split("-").map(Number);
