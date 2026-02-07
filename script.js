@@ -8,6 +8,8 @@ const outYears = document.getElementById("outYears");
 const outMonths = document.getElementById("outMonths");
 const outDays = document.getElementById("outDays");
 
+const segments = document.querySelectorAll(".seg");
+
 // Calculate button functionality
 btnCalc.addEventListener("click", () => {
   const [y, m, d] = birthDateInput.value.split("-").map(Number);
@@ -40,6 +42,18 @@ btnCalc.addEventListener("click", () => {
     years--;
     months += 12;
   }
+
+  // Update segment widths based on age
+  segments.forEach((seg) => {
+    const min = Number(seg.dataset.min);
+    const max = Number(seg.dataset.max);
+
+    if (years >= min && years <= max) {
+      seg.classList.add("active");
+    } else {
+      seg.classList.remove("active");
+    }
+  });
 
   outYears.textContent = years.toString().padStart(2, "0");
   outMonths.textContent = months.toString().padStart(2, "0");
