@@ -554,7 +554,7 @@ img {
   }
 
   body.light .ranges::-webkit-scrollbar-thumb {
-    background: var(--blue300);
+    background: var(--blue100);
   }
 }
 
