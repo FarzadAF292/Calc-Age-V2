@@ -374,7 +374,7 @@ img {
 }
 .ranges::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 999px;
+  border-radius: 10px;
 }
 
 /* control segment widths like the screenshot */
@@ -551,6 +551,10 @@ img {
   /* ranges scroll (you already enabled overflow) */
   .ranges {
     padding-bottom: 10px;
+  }
+
+  body.light .ranges::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.35);
   }
 }
 
