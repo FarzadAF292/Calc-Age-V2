@@ -340,7 +340,16 @@ img {
 
 /* control segment widths like the screenshot */
 .seg.small {
-  min-width: 12px;
+  min-width: 11px;
+}
+.seg.xsmall {
+  min-width: 57px;
+}
+.seg.xlsmall {
+  min-width: 40px;
+}
+.seg.midium {
+  min-width: 91px;
 }
 .seg.wide {
   min-width: 137px;
