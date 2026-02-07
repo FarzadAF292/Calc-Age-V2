@@ -366,6 +366,10 @@ img {
   font-family:
     Martian Mono,
     monospace;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .segLine {
@@ -373,6 +377,24 @@ img {
   height: 4px;
   border-radius: 1px;
   background: var(--gray600);
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.seg.active .segLine {
+  background: var(--yellow300);
+  transform: scaleY(1.6);
+}
+
+.seg.active .segLabel {
+  color: var(--gray200);
+  transform: translateY(-1px); /* subtle lift */
+  opacity: 1;
+}
+
+.seg:not(.active) .segLabel {
+  opacity: 0.6;
 }
 
 /* =========================
@@ -502,5 +524,11 @@ img {
 
   .num {
     font-size: 30px;
+  }
+}
+
+@media (hover: hover) {
+  .seg:hover .segLine {
+    transform: scaleY(1.3);
   }
 }
