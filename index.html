@@ -55,11 +55,11 @@
             <!-- Input row (UI only) -->
             <div class="controls">
                 <div class="input-pill">
-                    <input type="date" class="date-input" required aria-label="Birth date" />
+                    <input type="date" class="date-input" required aria-label="Birth date" id="birthDate" />
                     <img class="date-icon" src="./assests/calender.svg" alt="Calendar">
                 </div>
 
-                <button class="btn-primary" type="button">Calculate</button>
+                <button class="btn-primary" type="button" id="btnCalc">Calculate</button>
             </div>
 
             <!-- Result card -->
@@ -67,17 +67,17 @@
                 <!-- Top numbers -->
                 <div class="stats3">
                     <div class="statBox">
-                        <div class="num">32</div>
+                        <div class="num" id="outYears">32</div>
                         <div class="label">Years</div>
                     </div>
 
                     <div class="statBox">
-                        <div class="num">06</div>
+                        <div class="num" id="outMonths">06</div>
                         <div class="label">Months</div>
                     </div>
 
                     <div class="statBox">
-                        <div class="num">14</div>
+                        <div class="num" id="outDays">14</div>
                         <div class="label">Days</div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
             </section>
 
             <!-- Reset -->
-            <button class="btn-ghost" type="button">
+            <button class="btn-ghost" type="button" id="btnReset">
                 <span class="reset-ic">
                     <!-- reset -->
                     <img src="./assests/reset.svg" alt="Reset">
